@@ -1,0 +1,71 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 \CocoaLigature0 ### Description: This script includes representative command lines used in measuring k-mer genome sizes, i.e., preparing files needed for analyses in R.  Finally, k-mer frequency files and KSA-estimated k-mer coverage file are transferred to local computer to be further analyzed in R.  \
+#   Yanzhu Ji, yanzhuji20@gmail.com, last modified 10.3.2016\
+\
+### Detailed commands representing each species have been omitted for simplicity.  For each species, subdirectories are created and named by \'93xxxYyy\'94 where \'93xxx\'94 and \'93Yyy\'94 represents the first three letters of the genus and species names, respectively.  To make the whole thing run faster, long jobs are submitted by themselves to utilize computing power of the cluster.\
+\
+### For each species, get the project number PRJNA?????.  To retrieve SRA IDs associated with each PRJNA ID:\
+\
+## Load packages needed:\
+module load edirect\
+module load sra-toolkit\
+module load aspera-connect\
+\
+esearch -db sra -query "PRJNAxxxxxx" | efetch -format docsum | xtract -pattern DocumentSummary -element Runs > xxxYyy_acc_xml.list\
+\
+## Here, manually inserted carriage returns when needed: :%s/></>\\r</g\
+\
+## Then get a file with all SRA IDs associated with the project.\
+cut xxxYyy_acc_xml.list -d '"' -f2 > xxxYyy_sra.list\
+\
+## Download SRA files\
+for line in `cat xxxYyy_sra.list`; do\
+  prefetch.2.5.2 -t ascp \\\
+	-a "/group/bioinfo/apps/apps/aspera-connect-3.1.1.70545/bin/ascp|/group/bioinfo/apps/apps/aspera-connect-3.1.1.70545/etc/asperaweb_id_dsa.openssh" \\\
+	-X 40G \\\
+	$line \
+	\
+	mv ~/ncbi/public/sra/$\{line\}.sra $PBS_O_WORKDIR\
+ done\
+\
+### sra files -> fastq files. For each sra file:\
+\cf2 fastq-dump --split-3 --split-spot --skip-technical --defline-seq  '@$sn[_$rn]/$ri'  xyz.sra\
+\
+### For each species, concatenate all fastq files into one.  First, cd into the subdirectory. Then: \
+\
+cat *.fastq > $\{species\}-all.fastq \
+\cf0 \
+### Run jellyfish to get k-mer frequency distribution (.histo file)\
+for i in "$\{species[@]\}"; do\
+	cd $\{i\}\
+	jellyfish count -m 31 -o $\{i\}_m31.counts -s 3G -C -U 50000 -t 16 $\{i\}-all.fastq\
+	jellyfish histo -t 16 -o $\{i\}_m31_U5.histo $\{i\}_m31.counts\
+	echo $i\
+	echo\
+	cd ..\
+done\
+\
+### running Kmerspectrumanalyzer (KSA).  See the R script \'93automated_genomesize.R\'94 for reasons of keeping this step in the command lines.\
+for s in "$\{species[@]\}"; do\
+    echo $\{s\}/$\{s\}_m31_U5.histo # testing\
+    cd $s\
+    python /home/ji20/lib/kmerspectrumanalyzer-master/src/kmerspectrumanalyzer_yj.py -o $\{s\}_yj $\{s\}_m31_U5.histo\
+    echo \
+    cd ..\
+done\
+\
+## getting the list of coverage\
+\
+for s in "$\{species[@]\}"; do\
+    cov=`grep cov $\{s\}/$\{s\}_yj.fit.csv | cut -f2`\
+    echo "$s    $cov" >> ksa-coverage_47-species.list\
+done\
+\
+### k-mer genome sizes can then calculated using (1) k-mer frequency files \'93xxxYyy_m31_U5.histo\'94 created by jellyfish and (2) k-mer coverage estimated by KSA (\'93ksa-coverage_47-species.list\'94).  See \'93automated_genomesize.R\'94 for detailed steps in R.\
+\
+}

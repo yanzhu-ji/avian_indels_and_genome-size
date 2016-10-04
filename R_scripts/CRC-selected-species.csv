@@ -1,0 +1,47 @@
+file,species_name,common_name,Abb,sex,N,mean,s.d.,min,max,season,location,source 
+cotingas-NZwrens.csv,Manacus vitellinus,Golden-collared Manakin,manVit,M,17,19.3,0.2,,,,Panama,489
+cotingas-NZwrens.csv,Acanthisitta chloris,Rifleman,acaChl,M,21,6.3,0.6,5,7,,New Zealand,1002
+HA_honeycreepers-icterids.csv,Geospiza fortis,Medium Ground-Finch,geoFor,U,85,24,,18,32,,Galapagos Islands,107
+honeyeaters-corvids.csv,Corvus brachyrhynchos,American Crow,corBra,M,248,538,,,,W,"Illinois, USA",1252
+jacanas-doves.csv,Charadrius vociferus,Killdeer,chaVoc,M,10,92.1,10.4,83.9,109,B,"Great Plains, USA",314
+jacanas-doves.csv,Pterocles gutturalis,Yellow-throated Sandgrouse,pteGut,B,9,338,,285,400,,eastern Africa,120
+jacanas-doves.csv,Columba livia,Rock Pigeon,colLiv,M,41,369,38.6,,,B,"Kansas, USA",603
+ostrich-waterfowl.csv,Struthio camelus,Ostrich,strCam,U,13,111000,,86000,145000,, ,256
+ostrich-waterfowl.csv,Tinamus guttatus,White-throated Tinamou,tinGut,M,3,638,,623,652,, ,256
+ostrich-waterfowl.csv,Aptenodytes forsteri,Emperor Penguin,aptFor,M,9,38200,, , ,B,Antarctica,745
+ostrich-waterfowl.csv,Pygoscelis adeliae,Adelie Penguin,pygAde,M,15,5000,,,,B,Ross Is. ,3
+ostrich-waterfowl.csv,Gavia stellata,Red-throated Loon,gavSte,U,8,1486, ,1150,1923,,"Ontario, Canada",1147a
+ostrich-waterfowl.csv,Podiceps cristatus ,Great Crested Grebe ,podCri,M,7,738,,596,813,,Netherlands,223
+ostrich-waterfowl.csv,Fulmarus glacialis,Northern Fulmar,fulGla,M,47,649,52.1,552,773,B,"Alaska, USA",495
+ostrich-waterfowl.csv,Phaethon lepturus catesbyi,White-tailed Tropicbird,phaLep,U,110,367,27.8,,,,Bermuda; West Indies,678
+ostrich-waterfowl.csv,Pelecanus crispus,Dalmatian Pelican,pelCri,M,6,10400,,9500,12000,,,591
+ostrich-waterfowl.csv,Phalacrocorax carbo sinensis,Great Cormorant,phaCar,M,36,2283,,1975,2687,B,Germany,223
+ostrich-waterfowl.csv,Egretta garzetta,Little Egret,egrGar,F,9,312,,280,344,,,184a
+ostrich-waterfowl.csv,Nipponia nippon,Crested Ibis,nipNip,U,,1900,,,,,Japan,339
+ostrich-waterfowl.csv,Phoenicopterus ruber roseus,Greater Flamingo,phoRub,M,13,3540,,3100,4100,B,France,50
+ostrich-waterfowl.csv,Anas platyrhynchos,Mallard ,anaPla,U,5847,1082,129,720,1580,Y,"Britain, UK",889
+parrots-nightjars.csv,Nestor notabilis ,Kea,nesNot,M,91,956,172,,,,New Zealand,92
+parrots-nightjars.csv,Melopsittacus undulatus,Budgerigar,melUnd,M,173,29.2,1.9,,,,eastern Australia,1343
+parrots-nightjars.csv,Cuculus canorus,Common Cuckoo,cucCan,M,84,117,17,,,B,United Kingdom,223
+parrots-nightjars.csv,Tyto alba alba,Barn Owl,tytAlb,M,361,330,,,,,,1199
+starlings-finches.csv,Taeniopygia guttata castanotis,Zebra Finch,taeGut,M,560,11.9,0.8,10,15.2,,"N. Territory, Australia",518a
+swifts-woodpeckers.csv,Chaetura pelagica,Chimney Swift,chaPel,U,1805,23.6,,17,29.8,S,"Illinois, USA",1362
+swifts-woodpeckers.csv,Calypte anna,Anna's Hummingbird,calAnn,M,431,4.5,0.4,3.6,6.3,F,"Arizona, USA",1028
+swifts-woodpeckers.csv,Colius striatus,Speckled Mousebird,colStr,U,102,51.1,,36.8,64,,Kenya,121
+swifts-woodpeckers.csv,Apaloderma vittatum,Bar-tailed Trogon,apaVit,B,18,55,,49,59,, ,591a
+swifts-woodpeckers.csv,Merops nubicus,Northern Carmine Bee-eater,merNub,U,92,42.4,,34,51,,Ethiopia,394
+swifts-woodpeckers.csv,Leptosomus discolor,Cuckoo-Roller,lepDis,U,6,255,,232,301,,Madagascar,957
+swifts-woodpeckers.csv,Buceros rhinoceros,Rhinoceros Hornbill,bucRhi,M,5,2580,,2465,2960,,,626
+swifts-woodpeckers.csv,Picoides pubescens,Downy Woodpecker,picPub,B,224,27.7,,,,,"Indiana, USA",646
+vultures-bustards.csv,Cathartes aura meridionalis,Turkey Vulture,catAur,U,130,1430,228,,,W,Venezuela,634
+vultures-bustards.csv,Haliaeetus albicilla,White-tailed Eagle,halAlb,M,12,4014,755,3075,5430,,,223
+vultures-bustards.csv,Haliaeetus leucocephalus,Bald Eagle,halLeu,M,35,4130,,3637,4819,,"Alaska, USA",894
+vultures-bustards.csv,Falco peregrinus anatum,Peregrine Falcon,falPer,M,23,652,52.4,590,810,B,"Yukon River, Alaska, USA",1293
+vultures-bustards.csv,Meleagris gallopavo silvestris,Wild Turkey,melGal,M,140,7800,,6100,10400,W,"New York, USA",324
+vultures-bustards.csv,Mesitornis unicolor,Brown Mesite,mesUni,F,1,148,,,,B,Madagascar,1143
+vultures-bustards.csv,Balearica regulorum,Gray Crowned-Crane,balReg,F,2,3772,,3575,3970,,,1244
+vultures-bustards.csv,Eurypyga helias,Sunbittern,eurHel,B,8,210,,178,295,,Suriname; Peru,"370, 498"
+vultures-bustards.csv,Cariama cristata,Red-legged Seriema,carCri,U,,1400,,,,,Brazil ,1105
+vultures-bustards.csv,Gallus gallus jabouillei,Red Junglefowl,galGal,M,10,844,,672,1020,,China,184a
+vultures-bustards.csv,Opisthocomus hoazin,Hoatzin,opiHoa,U,9,696,,,,,Venezuela,298
+parrots-nightjars.csv,Caprimulgus carolinensis,Chuck-will's-widow,capCar,B,57,109,,66,188, , ,1179
